@@ -1,28 +1,36 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Classify from './components/classify';
+import OpenFile from './components/open-file';
+import ViewImage from './components/view-image';
 
-class App extends Component {
+export default class App extends Component{
+
+  constructor(){
+    super();
+    this.setImage = this.setImage.bind(this);
+    this.state = {
+      image: null
+    };
+    this.classifier = window.ml5.imageClassifier('MobileNet', () => { console.log('model loaded.') });
+  }
+
+  setImage(image){
+    this.setState({
+      image
+    });
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <main>
+          <OpenFile imageSelected={this.setImage} />
+          <ViewImage image={this.state.image} />
+          <Classify image={this.state.image} classifier={this.classifier}/>
+        </main>
       </div>
     );
   }
+  
 }
-
-export default App;
