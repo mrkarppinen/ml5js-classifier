@@ -2,6 +2,7 @@
   "name": "ml5-img-classifier",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://mrkarppinen.github.io/ml5js-classifier",
   "dependencies": {
     "gh-pages": "^2.0.1",
     "react": "^16.8.1",
