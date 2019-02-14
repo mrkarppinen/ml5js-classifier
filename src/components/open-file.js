@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const LoadButton = styled.button`
     border: none;
-    background: url(/Camera-icon.png);
+    background: url(${process.env.PUBLIC_URL}/Camera-icon.png);
     background-size: contain;
     width: 100px;
     height: 100px;

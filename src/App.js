@@ -12,7 +12,7 @@ export default class App extends Component{
     this.state = {
       image: null
     };
-    this.classifier = window.ml5.imageClassifier('MobileNet', () => { console.log('model loaded.') });
+    this.classifier = window.ml5.imageClassifier('MobileNet', () => {});
   }
 
   setImage(image){
